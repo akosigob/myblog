@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+            <h1>Your account has limited access to this page. To proceed,
+            please login with an account that has access.</h1>
+            {% else %}
+                <h1>Please login to have access to delete comment or update a post.</h1>
+            {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}    
+
+  <div class="col-md-8 card mb-4  mt-3 ">
+      <div class="card-body">
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <table>
+            <tr>
+              <td>{{ form.username.label_tag }}</td>
+              <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+              <td>{{ form.password.label_tag }}</td>
+              <td>{{ form.password }}</td>
+            </tr>
+          </table>
+          <input type="submit" value="login" />
+          <input type="hidden" name="next" value="{{ next }}" />
+        </form>        
+      </div>
+  </div>
+  </div>
+</div>
+{% endblock content %}

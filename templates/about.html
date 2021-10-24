@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>About The Creator</h1>
+        <p class=" text-muted">Short details.</p>
+        <p class="card-text ">...</p>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+
+    <div class="col-md-8 card mb-4  mt-3 ">
+      <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <th>Name:</th>
+            <th>Renel Rigor Boctot</th>            
+          </tr>
+          <tr>
+            <th>A.k.a</th>
+            <th>AkoSiGob</th>            
+          </tr>
+          <tr>
+            <th>Position</th>
+            <th>Compute Maintenance Technologist III</th>            
+          </tr>
+          <tr>
+            <th>Department</th>
+            <th>IT Services Division</th>            
+          </tr>
+        </tbody>
+      </table>  
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
